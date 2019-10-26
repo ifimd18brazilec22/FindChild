@@ -8,33 +8,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Scene Controller-->
+        <scene sceneID="STS-xp-wyV">
+            <objects>
+                <viewController id="Q4g-9A-oGC" customClass="ARSceneController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
+                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="ARGeoScene.scn" id="eXg-rW-CHN">
+                        <rect key="frame" x="0.0" y="0.0" width="388" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </arscnView>
+                    <navigationItem key="navigationItem" id="ZBy-S6-Hj5"/>
+                    <connections>
+                        <outlet property="sceneView" destination="eXg-rW-CHN" id="Ccj-GX-FMd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTZ-Cn-YQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="-716"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="NMAMapView">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-nE-rYo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-nE-rYo">
                                 <rect key="frame" x="923" y="86" width="47" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="NDz-Aw-JZ1"/>
+                                </constraints>
                                 <state key="normal" image="pos.png"/>
                                 <connections>
                                     <action selector="setMyPos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ocB-a6-Gv0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-30-aRh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-30-aRh">
                                 <rect key="frame" x="923" y="150" width="47" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="mark.png"/>
                                 <connections>
                                     <action selector="drawZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cSO-2A-xh8"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-Zy-azJ">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-Zy-azJ">
                                 <rect key="frame" x="29" y="86" width="445" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -45,10 +62,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlM-SR-VMS">
+                                <rect key="frame" x="868" y="86" width="47" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="8fZ-03-pna"/>
+                                </constraints>
+                                <state key="normal" image="home-button-for-interface.png"/>
+                                <connections>
+                                    <segue destination="Q4g-9A-oGC" kind="popoverPresentation" popoverAnchorView="hlM-SR-VMS" id="mhq-nY-Cp7">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hNT-nE-rYo" secondAttribute="trailing" constant="54" id="9NC-qS-Kdr"/>
+                            <constraint firstItem="hlM-SR-VMS" firstAttribute="top" secondItem="hNT-nE-rYo" secondAttribute="top" id="RTa-0z-H8t"/>
+                            <constraint firstItem="hlM-SR-VMS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="V93-L7-DaX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hlM-SR-VMS" secondAttribute="bottom" constant="638" id="YHu-0X-hqf"/>
+                            <constraint firstItem="hlM-SR-VMS" firstAttribute="bottom" secondItem="hNT-nE-rYo" secondAttribute="bottom" id="oUf-B2-EVK"/>
+                            <constraint firstItem="hNT-nE-rYo" firstAttribute="trailing" secondItem="WtS-30-aRh" secondAttribute="trailing" id="t5p-zA-vRG"/>
+                            <constraint firstItem="hlM-SR-VMS" firstAttribute="top" secondItem="4Re-Zy-azJ" secondAttribute="top" id="uh8-Cl-1zV"/>
+                            <constraint firstItem="hNT-nE-rYo" firstAttribute="leading" secondItem="WtS-30-aRh" secondAttribute="leading" id="xkB-xE-5tj"/>
+                            <constraint firstItem="WtS-30-aRh" firstAttribute="top" secondItem="hNT-nE-rYo" secondAttribute="bottom" constant="20" id="xud-S8-AdZ"/>
+                            <constraint firstItem="hNT-nE-rYo" firstAttribute="leading" secondItem="hlM-SR-VMS" secondAttribute="trailing" constant="8" id="zWT-bv-TyN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wS7-X5-g2W"/>
                     <connections>
                         <outlet property="mapHere" destination="8bC-Xf-vdC" id="jbw-25-vyz"/>
                         <outlet property="status" destination="4Re-Zy-azJ" id="iXU-et-n0B"/>
@@ -60,6 +102,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home-button-for-interface.png" width="44.639999389648438" height="44.639999389648438"/>
         <image name="mark.png" width="10" height="27"/>
         <image name="pos.png" width="23" height="23"/>
     </resources>

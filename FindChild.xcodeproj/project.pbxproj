@@ -23,6 +23,8 @@
 		B764A75523645D040014FF2E /* home-button-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = B764A75423645D040014FF2E /* home-button-for-interface.png */; };
 		B764A75723645F460014FF2E /* home-button-for-interface 1.png in Resources */ = {isa = PBXBuildFile; fileRef = B764A75623645F460014FF2E /* home-button-for-interface 1.png */; };
 		B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A758236464B50014FF2E /* SceneDelegate.swift */; };
+		B7EB73E92364847700377936 /* ARSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB73E82364847700377936 /* ARSceneController.swift */; };
+		B7EB73EB2364848600377936 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EB73EA2364848600377936 /* art.scnassets */; };
 		E1B52B15491582604ED73EEC /* libPods-FindChild.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D394B71303BD0214C939CEB9 /* libPods-FindChild.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		B764A75423645D040014FF2E /* home-button-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-button-for-interface.png"; path = "FindChild/png/home-button-for-interface.png"; sourceTree = "<group>"; };
 		B764A75623645F460014FF2E /* home-button-for-interface 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-button-for-interface 1.png"; path = "FindChild/png/home-button-for-interface 1.png"; sourceTree = "<group>"; };
 		B764A758236464B50014FF2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B7EB73E82364847700377936 /* ARSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSceneController.swift; sourceTree = "<group>"; };
+		B7EB73EA2364848600377936 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		CB2B7171B9BC1F78E8751BA9 /* Pods-FindChild.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindChild.release.xcconfig"; path = "Target Support Files/Pods-FindChild/Pods-FindChild.release.xcconfig"; sourceTree = "<group>"; };
 		D394B71303BD0214C939CEB9 /* libPods-FindChild.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FindChild.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,6 +69,8 @@
 		B764A724236418B70014FF2E = {
 			isa = PBXGroup;
 			children = (
+				B7EB73EA2364848600377936 /* art.scnassets */,
+				B7EB73E82364847700377936 /* ARSceneController.swift */,
 				B764A75623645F460014FF2E /* home-button-for-interface 1.png */,
 				B764A75423645D040014FF2E /* home-button-for-interface.png */,
 				B764A74923643BD10014FF2E /* 1.png */,
@@ -182,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B764A74F23643BD10014FF2E /* 1.png in Resources */,
+				B7EB73EB2364848600377936 /* art.scnassets in Resources */,
 				B764A74B23643BD10014FF2E /* 3.png in Resources */,
 				B764A75723645F460014FF2E /* home-button-for-interface 1.png in Resources */,
 				B764A74D23643BD10014FF2E /* 4.png in Resources */,
@@ -249,6 +256,7 @@
 				B764A75323644ACD0014FF2E /* File.swift in Sources */,
 				B764A735236418B70014FF2E /* ViewController.swift in Sources */,
 				B764A731236418B70014FF2E /* AppDelegate.swift in Sources */,
+				B7EB73E92364847700377936 /* ARSceneController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

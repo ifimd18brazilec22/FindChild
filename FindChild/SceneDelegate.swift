@@ -22,7 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         // Use a UIHostingController as window root view controller.
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let _ = scene as? UIWindowScene else { return }
+//        if let windowScene = (scene as? UIWindowScene) {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = UIStoryboard(name: "main", bundle: nil).instantiateViewController(withIdentifier: "mapViewController")
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
 //            let window = UIWindow(windowScene: windowScene)
 //        }}
 //          //  window.rootViewController = View(rootView: contentView)
