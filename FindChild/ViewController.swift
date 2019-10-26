@@ -8,19 +8,22 @@
 
 import UIKit
 import NMAKit
+import CoreTelephony
+
 //***
 struct objpost {
        var latitude = Double()
        var longitude = Double()
+       var cellor = String()
    }
 struct closedArea {
            var id_area = Int()
            var frame_area = [NMAGeoCoordinates]()
        }
-   var str = [NMAGeoCoordinates]()
-   var array_area = closedArea()
-private var geoBox1 : NMAGeoBoundingBox?
-private var geoPolyline : NMAMapPolyline?
+    var str = [NMAGeoCoordinates]()
+    var array_area = closedArea()
+    private var geoBox1 : NMAGeoBoundingBox?
+    private var geoPolyline : NMAMapPolyline?
 let areCheking =
    /*1*/       [NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10),
    /*2*/        NMAGeoCoordinates(latitude: 55.75794, longitude: 37.60277, altitude: 10),
@@ -39,33 +42,7 @@ class ViewController: UIViewController {
     var idArea = 0
     var end_area = ""
     var boxik : NMAGeoBoundingBox?
-     var index_touch = Int()
-    /*
-     var coreRouter: NMACoreRouter!
-       //
-     var polyX = [Double]()
-        var polyY = [Double]()
-        //
-        let zoomLevel : Float = 15
-       
-        
-        // def values
-         private var geoBox1 : NMAGeoBoundingBox?
-         private var geoPolyline : NMAMapPolyline?
-         private var mapCircle : NMAMapCircle?
-       var boxik : NMAGeoBoundingBox?
-       var mapRouts = [NMAMapRoute]()
-  
-       //
-       var route = [NMAGeoCoordinates]()
-       //
-           let LeftUp = UIImage(named: "1.png")
-           let RightUp = UIImage(named: "2.png")
-           let RightDown = UIImage(named: "3.png")
-           let LeftDown = UIImage(named: "4.png")
-           var objSelect = objectSelectedUsers()
-           var arrayObjSelect = [Any]()
-     */
+    var index_touch = Int()
     var mapRouts = [NMAMapRoute]()
     var coreRouter: NMACoreRouter!
          var progress: Progress? = nil
@@ -94,6 +71,7 @@ class ViewController: UIViewController {
         self.trackingTimer()
         self.createPolyline(CTR: areCheking)
         coreRouter = NMACoreRouter()
+        self.getLive()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -110,24 +88,32 @@ class ViewController: UIViewController {
     
    }
   @objc  func TrackingMyPosition() {
+    var cerror: String = "empty"
     if NMAPositioningManager.sharedInstance().currentPosition?.coordinates != nil {
+            let networkInfo = CTTelephonyNetworkInfo()
+            let back_info = networkInfo.subscriberCellularProvider
+            let radio_info = networkInfo.serviceCurrentRadioAccessTechnology
+            let level_info = radio_info?.values
+            for name_carrier in level_info! {
+                cerror = name_carrier
+            }
+                    if cerror == "CTRadioAccessTechnologyLTE" {
+        //                print("CTRadioAccessTechnologyLTE")
+                    } else if cerror == "CTRadioAccessTechnologyWCDMA" {
+        //                print("CTRadioAccessTechnologyWCDMA")
+                    } else if cerror == "CTRadioAccessTechnologyEdge" {
+        //                print("CTRadioAccessTechnologyEdge")
+                    }
+            obj.cellor = cerror
             let latTracking = NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.latitude
             let lonTracking = NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.longitude
             obj.latitude = latTracking!
             obj.longitude = lonTracking!
             //
-            arrayObj["latitude"] = obj.latitude
-            arrayObj["longitude"] = obj.longitude
-            //print(obj)
-    /*
-            let urlstring = "http://185.81.248.50:8080/api/location"//"http://192.168.43.42:8080/add"
-            arrayObj["latitude"] = obj.latitude
-            arrayObj["longitude"] = obj.longitude
-            //arrayObj["signal"] = obj.signal
-           // arrayObj["carrier"] = obj.carrier
-           // Carrier.text = arrayObj["carrier"] as! String
-            post(url: urlstring, parametrs:arrayObj)
-            createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.red, rad: 5) */
+            arrayObj["latitude"] = obj.latitude as Double
+            arrayObj["longitude"] = obj.longitude as Double
+            arrayObj["cellor"] = obj.cellor
+            post(url: "http://172.31.18.155:8080/api/location/live", parametrs: arrayObj)
         createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.blue, rad: 5)
     }
         }
@@ -137,9 +123,11 @@ class ViewController: UIViewController {
         self.mapHere.set(geoCenter: NMAGeoCoordinates(latitude: latTracking, longitude: lonTracking!), animation: .none)
     }
     @IBAction func drawZone(_ sender: Any) {
-        let latTracking = (NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.latitude)!
-        let lonTracking = NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.longitude
-        self.mapHere.set(geoCenter: NMAGeoCoordinates(latitude: latTracking, longitude: lonTracking!), animation: .none)
+        self.getLive()
+    }
+    @IBAction func getPoint(_ sender: Any) {
+        let image = "https://image.maps.api.here.com/mia/1.6/mapview?app_id=0ZZSBa9QPnfBc8zgJC1p&app_code=R7UJ1isf9yaZLiV058KZoQ&lat=55.86&lon=38.402277&vt=0&z=15"
+        getImage(url: image)
     }
 }
 protocol quaklyInit{
@@ -150,23 +138,6 @@ protocol InitMap {
     var orientation : UInt {get set}
     var mapScheme : String {get set}
 }
-/*extension NMAMapView : InitMap {
-    var copyrightLogoPosition: UInt {
-        get {
-        }
-        set {
-        }
-    }
-    
-    var orientation: UInt {
-        get {
-        }
-        set {
-        }
-    }
-    
-    
-} */
 
 extension NMAMapView : quaklyInit {
     // MARK 1
@@ -198,7 +169,7 @@ extension ViewController {
 func trackingTimer()
 {
     timeGeoPosition.invalidate()
-    timeGeoPosition = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: "TrackingMyPosition", userInfo: nil, repeats: true)
+    timeGeoPosition = Timer.scheduledTimer(timeInterval: 1, target: self, selector: "TrackingMyPosition", userInfo: nil, repeats: true)
 }
 }
 extension ViewController {
@@ -298,11 +269,6 @@ extension ViewController : NMAMapGestureDelegate {
         print(array_area.frame_area)
         print(array_area.id_area)
         createPolyline(CTR: array_area.frame_area)
-        
-       // }
-        
-            //   var pTemp = self.ckeckPoint(checkPoint: mapView.geoCoordinates(from: location)!)
-    //    print(pTemp)
     }
     func mapView(_ mapView: NMAMapView, didReceiveTwoFingerTapAt location: CGPoint) {
         if end_area == "end" {
@@ -315,29 +281,19 @@ extension ViewController : NMAMapGestureDelegate {
 }
 extension ViewController {
     public func drawRailStation(id : Int, geo : NMAGeoCoordinates, type : String) {
-        //arrayObjSelect
         objSelect = objectSelectedUsers()
         if objSelect.id == 0 {
-          //  delete(objSelect[0])
         }
          /*1*/       objSelect.id = id
         let polyTester = drawRectwith(centrBox: geo, 0.005)
             polyTester.polyGon.map{mapHere.add(mapObject: $0)}
             boxik = polyTester.polyBox
-           // ***
-        
             let marker = NMAMapMarker(geoCoordinates: geo, image: UIImage(named: type)!)
             coordSystemHeli.append(geo)
             let cluster = NMAClusterLayer()
             cluster.addMarker(marker)
-         //   cluster.addMarker(rightUp)
-         //   cluster.addMarker(leftDown)
             self.mapHere.add(clusterLayer: cluster)
-            
-       //     print("coordMass\(coordSystemHeli)")
-       //     print("coordMass.count :\(coordSystemHeli.count)")
             print("struct - \(arrayObjSelect)")
-            //rechangeCount()
     }
 }
 extension ViewController {
@@ -353,8 +309,6 @@ extension ViewController {
     if !(progress?.isFinished ?? false) {
         progress?.cancel()
     }
-    // store progress.
-  //  print(route)
     route.insert(NMAGeoCoordinates(latitude: (myPosition?.coordinates!.latitude)!, longitude: (myPosition?.coordinates!.longitude)!), at: 0)
     print(route)
     progress = coreRouter.calculateRoute(withStops: route, routingMode: routingMode, { (routeResult, error) in
@@ -384,4 +338,72 @@ extension ViewController {
         self.mapHere.add(mapObject: mapRoute)
     })
 }
+}
+//
+extension ViewController {
+    // post
+    func post(url : String,parametrs : [String:Any]) {
+        guard let url = URL(string: url) else {return}
+        let parametrs = parametrs//["id":"3","carrier":"LTE"]
+        var request = URLRequest(url : url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-type")
+        request.httpMethod = "POST"
+        guard let httBody = try? JSONSerialization.data(withJSONObject: parametrs, options: [.fragmentsAllowed]) else { return }
+        
+        //data(withJSONObject: parametrs, options: []) else {return}
+        request.httpBody = httBody
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data,response,error) in
+            if let response = response {
+        //        print(response)
+            }
+            guard let data = data else {return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+       //          print(json)
+                
+            } catch {
+      //          print(error)
+            }
+        }.resume()
+    }
+    // get
+    func get(url : String/*,parametrs : [String:Any]*/) {
+        guard let url = URL(string: url) else {return}
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data,response,error) in
+            if let response = response {
+                print(response)
+            }
+            guard let data = data else {return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                 print(json)
+                let data = json as! [String:Any]
+                let lat = data["latitude"] as! Double
+                let lon = data["longitude"] as! Double
+                self.createCircle(geoCoord: NMAGeoCoordinates(latitude: lat, longitude: lon), color: UIColor.lightGray, rad: 1)
+            
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    // get
+    func getImage(url : String/*,parametrs : [String:Any]*/) {
+        guard let url = URL(string: url) else {return}
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data,response,error) in
+            if let response = response {
+                print(response)
+            }
+            guard let data = data else {return}
+            print(data)
+        }.resume()
+    }
+}
+extension ViewController {
+    func getLive() {
+        get(url: "http://172.31.18.155:8080/api/location/live")
+    }
 }

@@ -40,14 +40,6 @@ public func drawRectwithPoint(centrBox : [NMAGeoCoordinates], _ height : Float) 
     
     var geoBoxPolygon : NMAGeoBoundingBox?
     var boxPoly : NMAMapPolygon?
-    //geoBoxPolygon = NMAGeoBoundingBox(center: centrBox,
-         //                             width: height,
-          //                            height: height/2)
-    //create a NMAMapPolygon with bounding box's vertices.
-    //boxPoly = geoBoxPolygon.map { NMAMapPolygon(vertices: [$0.topLeft,
-      //                                                     $0.bottomLeft,
-        //                                                   $0.bottomRight,
-          //                                                 $0.topRight]) }
     boxPoly = NMAMapPolygon.init(vertices: centrBox)
     //object.polyBox = geoBoxPolygon
     object.polyGon = boxPoly
