@@ -23,6 +23,8 @@
 		B764A75523645D040014FF2E /* home-button-for-interface.png in Resources */ = {isa = PBXBuildFile; fileRef = B764A75423645D040014FF2E /* home-button-for-interface.png */; };
 		B764A75723645F460014FF2E /* home-button-for-interface 1.png in Resources */ = {isa = PBXBuildFile; fileRef = B764A75623645F460014FF2E /* home-button-for-interface 1.png */; };
 		B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A758236464B50014FF2E /* SceneDelegate.swift */; };
+		B79E014B2364F3AA00F5D5B9 /* CheckerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79E014A2364F3AA00F5D5B9 /* CheckerArea.swift */; };
+		B79E014D2364F4C100F5D5B9 /* routeChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79E014C2364F4C100F5D5B9 /* routeChild.swift */; };
 		B7C5C0DC2364B6DA009002AA /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5C0DB2364B6DA009002AA /* MaterialView.swift */; };
 		B7EB73E92364847700377936 /* ARSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB73E82364847700377936 /* ARSceneController.swift */; };
 		B7EB73EB2364848600377936 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EB73EA2364848600377936 /* art.scnassets */; };
@@ -49,7 +51,9 @@
 		B764A75423645D040014FF2E /* home-button-for-interface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button-for-interface.png"; sourceTree = "<group>"; };
 		B764A75623645F460014FF2E /* home-button-for-interface 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button-for-interface 1.png"; sourceTree = "<group>"; };
 		B764A758236464B50014FF2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B7C5C0DB2364B6DA009002AA /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = SOURCE_ROOT; };
+		B79E014A2364F3AA00F5D5B9 /* CheckerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerArea.swift; sourceTree = "<group>"; };
+		B79E014C2364F4C100F5D5B9 /* routeChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeChild.swift; sourceTree = "<group>"; };
+		B7C5C0DB2364B6DA009002AA /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialView.swift; path = FindChild/View/MaterialView.swift; sourceTree = SOURCE_ROOT; };
 		B7EB73E82364847700377936 /* ARSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSceneController.swift; sourceTree = "<group>"; };
 		B7EB73EA2364848600377936 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		CB2B7171B9BC1F78E8751BA9 /* Pods-FindChild.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindChild.release.xcconfig"; path = "Target Support Files/Pods-FindChild/Pods-FindChild.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,9 +75,8 @@
 		B764A724236418B70014FF2E = {
 			isa = PBXGroup;
 			children = (
-				B7EB73EA2364848600377936 /* art.scnassets */,
-				B7EB73E82364847700377936 /* ARSceneController.swift */,
 				B7EB73EC23648B7F00377936 /* png */,
+				B79E014F2364F63800F5D5B9 /* ARScene */,
 				B764A72F236418B70014FF2E /* FindChild */,
 				B764A72E236418B70014FF2E /* Products */,
 				F16F871B774348F4592ADE19 /* Pods */,
@@ -92,18 +95,61 @@
 		B764A72F236418B70014FF2E /* FindChild */ = {
 			isa = PBXGroup;
 			children = (
-				B7C5C0DB2364B6DA009002AA /* MaterialView.swift */,
-				B764A750236448F40014FF2E /* extensionPoly.swift */,
-				B764A730236418B70014FF2E /* AppDelegate.swift */,
-				B764A734236418B70014FF2E /* ViewController.swift */,
-				B764A736236418B70014FF2E /* Main.storyboard */,
+				B79E01522364F68100F5D5B9 /* storyboard */,
+				B79E01512364F66D00F5D5B9 /* View */,
+				B79E01502364F65700F5D5B9 /* Delegate */,
+				B79E014E2364F60C00F5D5B9 /* geometruyk_function */,
 				B764A739236418B80014FF2E /* Assets.xcassets */,
-				B764A73B236418B80014FF2E /* LaunchScreen.storyboard */,
 				B764A73E236418B80014FF2E /* Info.plist */,
-				B764A75223644ACD0014FF2E /* File.swift */,
-				B764A758236464B50014FF2E /* SceneDelegate.swift */,
 			);
 			path = FindChild;
+			sourceTree = "<group>";
+		};
+		B79E014E2364F60C00F5D5B9 /* geometruyk_function */ = {
+			isa = PBXGroup;
+			children = (
+				B79E014A2364F3AA00F5D5B9 /* CheckerArea.swift */,
+				B764A75223644ACD0014FF2E /* File.swift */,
+				B79E014C2364F4C100F5D5B9 /* routeChild.swift */,
+				B764A750236448F40014FF2E /* extensionPoly.swift */,
+			);
+			path = geometruyk_function;
+			sourceTree = "<group>";
+		};
+		B79E014F2364F63800F5D5B9 /* ARScene */ = {
+			isa = PBXGroup;
+			children = (
+				B7EB73EA2364848600377936 /* art.scnassets */,
+				B7EB73E82364847700377936 /* ARSceneController.swift */,
+			);
+			path = ARScene;
+			sourceTree = "<group>";
+		};
+		B79E01502364F65700F5D5B9 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B764A730236418B70014FF2E /* AppDelegate.swift */,
+				B764A758236464B50014FF2E /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		B79E01512364F66D00F5D5B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5C0DB2364B6DA009002AA /* MaterialView.swift */,
+				B764A734236418B70014FF2E /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B79E01522364F68100F5D5B9 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B764A73B236418B80014FF2E /* LaunchScreen.storyboard */,
+				B764A736236418B70014FF2E /* Main.storyboard */,
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		B7EB73EC23648B7F00377936 /* png */ = {
@@ -264,10 +310,12 @@
 			files = (
 				B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */,
 				B764A751236448F50014FF2E /* extensionPoly.swift in Sources */,
+				B79E014B2364F3AA00F5D5B9 /* CheckerArea.swift in Sources */,
 				B764A75323644ACD0014FF2E /* File.swift in Sources */,
 				B764A735236418B70014FF2E /* ViewController.swift in Sources */,
 				B764A731236418B70014FF2E /* AppDelegate.swift in Sources */,
 				B7C5C0DC2364B6DA009002AA /* MaterialView.swift in Sources */,
+				B79E014D2364F4C100F5D5B9 /* routeChild.swift in Sources */,
 				B7EB73E92364847700377936 /* ARSceneController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

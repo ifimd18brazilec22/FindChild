@@ -9,45 +9,43 @@
 import UIKit
 import NMAKit
 import CoreTelephony
-
-//***
+//
+protocol quaklyInit{
+    func MapInit ()
+}
+protocol InitMap {
+    var copyrightLogoPosition : UInt {get set}
+    var orientation : UInt {get set}
+    var mapScheme : String {get set}
+}
+//*** user's struct
 struct objpost {
-       var latitude = Double()
-       var longitude = Double()
-       var cellor = String()
-   }
+    var latitude = Double()
+    var longitude = Double()
+    var cellor = String()
+}
 struct closedArea {
-           var id_area = Int()
-           var frame_area = [NMAGeoCoordinates]()
-       }
+    var frame_area = [NMAGeoCoordinates]()
+}
+// let/var
     var str = [NMAGeoCoordinates]()
     var array_area = closedArea()
     private var geoBox1 : NMAGeoBoundingBox?
     private var geoPolyline : NMAMapPolyline?
-let areCheking =
-   /*1*/       [NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10),
-   /*2*/        NMAGeoCoordinates(latitude: 55.75794, longitude: 37.60277, altitude: 10),
-   /*3*/        NMAGeoCoordinates(latitude: 55.75040, longitude: 37.60054, altitude: 10),
-   /*4*/        NMAGeoCoordinates(latitude: 55.74499, longitude: 37.60723, altitude: 10),
-   /*5*/        NMAGeoCoordinates(latitude: 55.74480, longitude: 37.61581, altitude: 10),
-   /*6*/        NMAGeoCoordinates(latitude: 55.75137, longitude: 37.61238, altitude: 10),
-   /*7*/        NMAGeoCoordinates(latitude: 55.75774, longitude: 37.61908, altitude: 10),
-   /*8*/        NMAGeoCoordinates(latitude: 55.75504, longitude: 37.62302, altitude: 10),
-   /*9*/        NMAGeoCoordinates(latitude: 55.74837, longitude: 37.63212, altitude: 10),
-   /*10*/       NMAGeoCoordinates(latitude: 55.75697, longitude: 37.63521, altitude: 10),
-   /*11*/       NMAGeoCoordinates(latitude: 55.76325, longitude: 37.61599, altitude: 10),
-   /*12*/       NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10)]
+
+// class vc
 class ViewController: UIViewController {
     @IBOutlet var status: UITextField!
     var idArea = 0
     var end_area = ""
+    var shape = ""
     var boxik : NMAGeoBoundingBox?
     var index_touch = Int()
     var mapRouts = [NMAMapRoute]()
     var coreRouter: NMACoreRouter!
-         var progress: Progress? = nil
+    var progress: Progress? = nil
     var objSelect = objectSelectedUsers()
-              var arrayObjSelect = [Any]()
+    var arrayObjSelect = [Any]()
     var index_placed = Int()
     var route = [NMAGeoCoordinates]()
     public var coordSystemHeli = [NMAGeoCoordinates]()
@@ -55,37 +53,37 @@ class ViewController: UIViewController {
     var arrayObj = [String:Any]()
     var timeGeoPosition = Timer()
     private var mapCircle : NMAMapCircle?
+    //
     @IBOutlet weak var mapHere: NMAMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapHere.MapInit()
         self.mapHere.gestureDelegate = self
-
+        // tpos
         NMAPositioningManager.sharedInstance().dataSource = NMAHEREPositionSource()
-         
         NotificationCenter.default.addObserver(self,
                                                 selector: #selector(ViewController.didUpdatePosition),
                                                 name: NSNotification.Name.NMAPositioningManagerDidUpdatePosition,
                                                 object: NMAPositioningManager.sharedInstance())
         let  myPosition = NMAPositioningManager.sharedInstance().currentPosition
         self.trackingTimer()
-        self.createPolyline(CTR: areCheking)
         coreRouter = NMACoreRouter()
         self.getLive()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         progress?.cancel()
     }
 
+    @IBOutlet var Label_button: UIButton!
     
-   @objc func didUpdatePosition() {
+    @objc func didUpdatePosition() {
        guard let position = NMAPositioningManager.sharedInstance().currentPosition,
            let coordinates = position.coordinates else {
                return
        }
-    
    }
   @objc  func TrackingMyPosition() {
     var cerror: String = "empty"
@@ -117,6 +115,24 @@ class ViewController: UIViewController {
         createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.blue, rad: 5)
     }
         }
+    
+    @IBAction func StartPoly(_ sender: Any)
+    {
+        if Label_button.currentTitle == "Начать" {
+        end_area = "start"
+        shape = "poly"
+        Label_button.setTitle("Завершить", for: .normal)
+        } else {
+        Label_button.setTitle("Начать", for: .normal)
+        end_area = "end"
+        shape = "poly"
+            let last =  array_area.frame_area[0]
+            array_area.frame_area.append(last)
+            let polyTester = drawRectwithPoint(centrBox: array_area.frame_area, 20)
+            polyTester.map{mapHere.add(mapObject: $0)}
+            array_area.frame_area.removeAll()
+        }
+    }
     @IBAction func setMyPos(_ sender: Any) {
         let latTracking = (NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.latitude)!
         let lonTracking = NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.longitude
@@ -129,14 +145,6 @@ class ViewController: UIViewController {
         let image = "https://image.maps.api.here.com/mia/1.6/mapview?app_id=0ZZSBa9QPnfBc8zgJC1p&app_code=R7UJ1isf9yaZLiV058KZoQ&lat=55.86&lon=38.402277&vt=0&z=15"
         getImage(url: image)
     }
-}
-protocol quaklyInit{
-    func MapInit ()
-}
-protocol InitMap {
-    var copyrightLogoPosition : UInt {get set}
-    var orientation : UInt {get set}
-    var mapScheme : String {get set}
 }
 
 extension NMAMapView : quaklyInit {
@@ -196,10 +204,10 @@ extension ViewController : NMAMapGestureDelegate {
             let latLocal = mapView.geoCoordinates(from: location)!.latitude
             let lonLocal = mapView.geoCoordinates(from: location)!.longitude
             self.route.append(NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal))
-            self.drawRailStation(id: self.index_placed, geo: NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal,altitude: 1), type: "home-button-for-interface 1.png")
+            self.zoneObject(id: self.index_placed, geo: NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal,altitude: 1), type: "home-button-for-interface 1.png")
            // print(self.route)
             //mapView.onMapObjectSelected(latLocal, lonLocal)
-            self.addRoute((Any).self)
+            self.routeChild((Any).self)
             self.index_placed += 1
         }
         let canceledAction = UIAlertAction(title: "Отменить", style: .cancel) {
@@ -220,7 +228,6 @@ extension ViewController : NMAMapGestureDelegate {
     }
     public func ckeckPoint(checkPoint : NMAGeoCoordinates) -> dec_point {
         var status_id = dec_point()
-        //print("size arrayOBJ : = \(arrayObjSelect) + and count \(arrayObjSelect.count)")
         if arrayObjSelect.count > 0 {
             for i in 0...arrayObjSelect.count - 1 {
                 let arg = arrayObjSelect[i] as! objectSelectedUsers
@@ -235,16 +242,6 @@ extension ViewController : NMAMapGestureDelegate {
                     //print("point is poly - \(indoorpoly) id object : _")
                 }
             }
-          
-        } else {
-        
-    var obS = self.NMAGeoToDoubleArray(arrayHere: areCheking)
-    var indoorpoly = self.pnpoly(areCheking.count - 1, obS.pointX, obS.pointY, checkPoint.latitude, checkPoint.longitude)
-           print(indoorpoly)
-        status.text = "Point is : \(indoorpoly) - touch ID :\(self.index_touch)"
-        self.index_touch += 1
-        status_id.status = indoorpoly
-        status_id.id_obj = self.index_touch
         }
         return status_id
     }
@@ -253,91 +250,19 @@ extension ViewController : NMAMapGestureDelegate {
     func mapView(_ mapView: NMAMapView, didReceiveDoubleTapAt location: CGPoint) {
         
         var getCoordinate = mapView.geoCoordinates(from: location)
-        if end_area == "end" {
-        idArea += 1
-            let end_poly = array_area.frame_area
-            print(end_poly[0])
-            array_area.frame_area.append(end_poly[0])
-            print(array_area.frame_area)
-        let polyTester = drawRectwithPoint(centrBox: array_area.frame_area, 20)
-        polyTester.map{mapHere.add(mapObject: $0)}
-        array_area.frame_area.removeAll()
-        } else {
-        array_area.id_area = idArea
+       
+        if end_area == "start" && shape == "poly" {
         array_area.frame_area.append(getCoordinate!)
-        }
-        print(array_area.frame_area)
-        print(array_area.id_area)
         createPolyline(CTR: array_area.frame_area)
+        } else if end_area == "end" && shape == "poly" {
+            if array_area.frame_area != nil {
+            
+            }
+        }
     }
     func mapView(_ mapView: NMAMapView, didReceiveTwoFingerTapAt location: CGPoint) {
-        if end_area == "end" {
-        end_area = "start"
-        } else {
-        end_area = "end"
-        }
     }
     // *LongPress* touch to detected point in poly
-}
-extension ViewController {
-    public func drawRailStation(id : Int, geo : NMAGeoCoordinates, type : String) {
-        objSelect = objectSelectedUsers()
-        if objSelect.id == 0 {
-        }
-         /*1*/       objSelect.id = id
-        let polyTester = drawRectwith(centrBox: geo, 0.005)
-            polyTester.polyGon.map{mapHere.add(mapObject: $0)}
-            boxik = polyTester.polyBox
-            let marker = NMAMapMarker(geoCoordinates: geo, image: UIImage(named: type)!)
-            coordSystemHeli.append(geo)
-            let cluster = NMAClusterLayer()
-            cluster.addMarker(marker)
-            self.mapHere.add(clusterLayer: cluster)
-            print("struct - \(arrayObjSelect)")
-    }
-}
-extension ViewController {
-@IBAction func addRoute(_ sender: Any) {
-    let  myPosition = NMAPositioningManager.sharedInstance().currentPosition
-    var routingMode = NMARoutingMode()
-    routingMode = NMARoutingMode.init(
-        routingType: NMARoutingType.fastest,//shortest,//.fastest,
-        transportMode: NMATransportMode.car,//pedestrian,
-        routingOptions: []//NMARoutingOption.avoidTollRoad
-    )
-    // check if calculation completed otherwise cancel.
-    if !(progress?.isFinished ?? false) {
-        progress?.cancel()
-    }
-    route.insert(NMAGeoCoordinates(latitude: (myPosition?.coordinates!.latitude)!, longitude: (myPosition?.coordinates!.longitude)!), at: 0)
-    print(route)
-    progress = coreRouter.calculateRoute(withStops: route, routingMode: routingMode, { (routeResult, error) in
-  //      print(self.route)
-        if (error != NMARoutingError.none) {
-            NSLog("Error in callback: \(error)")
-            return
-        }
-        guard let route = routeResult?.routes?.first else {
-            print("Empty Route result")
-            return
-        }
-        guard let box = route.boundingBox, let mapRoute = NMAMapRoute.init(route) else {
-            print("Can't init Map Route")
-            return
-        }
-        
-        if (self.mapRouts.count != 0) {
-            for route in self.mapRouts {
-                self.mapHere.remove(mapObject: route)
-            }
-            self.mapRouts.removeAll()
-        }
-        self.mapRouts.append(mapRoute)
-        self.mapHere.set(boundingBox: box, animation: NMAMapAnimation.linear)
-        //NMAMapRoute(route)
-        self.mapHere.add(mapObject: mapRoute)
-    })
-}
 }
 //
 extension ViewController {

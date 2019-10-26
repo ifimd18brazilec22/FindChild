@@ -14,7 +14,6 @@ public struct objectPoint {
     var polyBox : NMAGeoBoundingBox?
 }
 var object = objectPoint()
-
     public func drawRectwith(centrBox : NMAGeoCoordinates, _ height : Float) -> objectPoint {
         
         var geoBoxPolygon : NMAGeoBoundingBox?
@@ -37,16 +36,13 @@ var object = objectPoint()
         return object
     }
 public func drawRectwithPoint(centrBox : [NMAGeoCoordinates], _ height : Float) -> NMAMapPolygon? {
-    
     var geoBoxPolygon : NMAGeoBoundingBox?
     var boxPoly : NMAMapPolygon?
     boxPoly = NMAMapPolygon.init(vertices: centrBox)
-    //object.polyBox = geoBoxPolygon
     object.polyGon = boxPoly
     boxPoly?.fillColor = UIColor.gray
     boxPoly?.lineWidth = 1
     boxPoly?.lineColor = UIColor.red
     boxPoly?.isVisible = true
-    //_ = boxPoly.map{MapView.add(mapObject: $0)}
     return object.polyGon
 }

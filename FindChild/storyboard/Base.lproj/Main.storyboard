@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="Q4g-9A-oGC" customClass="ARSceneController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="ARGeoScene.scn" id="eXg-rW-CHN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </arscnView>
                     <navigationItem key="navigationItem" id="ZBy-S6-Hj5"/>
@@ -30,11 +30,12 @@
             <objects>
                 <viewController storyboardIdentifier="mapViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="NMAMapView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-Zy-azJ">
-                                <rect key="frame" x="29" y="86" width="365" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-Zy-azJ">
+                                <rect key="frame" x="29" y="86" width="147" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -46,8 +47,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-i9-YVB" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="160" width="145" height="197"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-i9-YVB" customClass="CardView" customModule="FindChild" customModuleProvider="target">
+                                <rect key="frame" x="29" y="160" width="147" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlM-SR-VMS">
                                         <rect key="frame" x="49" y="12" width="47" height="44"/>
@@ -70,15 +72,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-MU-ISX" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="393" width="145" height="69"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-MU-ISX" customClass="CardView" customModule="FindChild" customModuleProvider="target">
+                                <rect key="frame" x="29" y="282" width="147" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-nE-rYo">
-                                        <rect key="frame" x="49" y="12" width="47" height="44"/>
+                                        <rect key="frame" x="-8" y="6" width="162" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pos.png"/>
+                                        <state key="normal" title="Начать"/>
                                         <connections>
-                                            <action selector="setMyPos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ocB-a6-Gv0"/>
+                                            <action selector="StartPoly:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbT-ao-s8p"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -92,8 +95,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-n6-1V8" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="497" width="145" height="47"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-n6-1V8" customClass="CardView" customModule="FindChild" customModuleProvider="target">
+                                <rect key="frame" x="29" y="370" width="147" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-30-aRh">
                                         <rect key="frame" x="49" y="1" width="47" height="44"/>
@@ -114,39 +118,51 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uv-jv-IUL" customClass="CardView" customModule="FindChild" customModuleProvider="target">
+                                <rect key="frame" x="549" y="709" width="147" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odb-fb-SRQ">
+                                        <rect key="frame" x="20" y="1" width="105" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="jPE-8A-z82"/>
+                                        </constraints>
+                                        <state key="normal" image="calendar" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="odb-fb-SRQ" firstAttribute="leading" secondItem="3uv-jv-IUL" secondAttribute="leading" constant="20" id="44M-Rh-9HG"/>
+                                    <constraint firstItem="odb-fb-SRQ" firstAttribute="top" secondItem="3uv-jv-IUL" secondAttribute="top" constant="1" id="KQn-Sf-faW"/>
+                                    <constraint firstItem="odb-fb-SRQ" firstAttribute="centerY" secondItem="3uv-jv-IUL" secondAttribute="centerY" id="s13-2r-UiF"/>
+                                    <constraint firstAttribute="trailing" secondItem="odb-fb-SRQ" secondAttribute="trailing" constant="22" id="wOO-VA-1Fl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="0P6-eh-BFa"/>
-                            <constraint firstAttribute="bottom" secondItem="FIJ-i9-YVB" secondAttribute="bottom" constant="539" id="390-do-Xno"/>
-                            <constraint firstItem="1JU-n6-1V8" firstAttribute="top" secondItem="9A2-MU-ISX" secondAttribute="bottom" constant="35" id="5SJ-Nr-DVT"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="160" id="650-pY-TGR"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="leading" secondItem="4Re-Zy-azJ" secondAttribute="leading" id="G9g-kL-rXQ"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="leading" secondItem="1JU-n6-1V8" secondAttribute="leading" id="LfI-F9-ASD"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="leading" secondItem="9A2-MU-ISX" secondAttribute="leading" id="MzI-bY-hMe"/>
-                            <constraint firstItem="9A2-MU-ISX" firstAttribute="top" secondItem="FIJ-i9-YVB" secondAttribute="bottom" constant="36" id="ORc-5y-uPO"/>
-                            <constraint firstAttribute="trailing" secondItem="FIJ-i9-YVB" secondAttribute="trailing" constant="240" id="SVG-Nz-nh0"/>
-                            <constraint firstAttribute="bottom" secondItem="9A2-MU-ISX" secondAttribute="bottom" constant="434" id="dzo-0E-9no"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="trailing" secondItem="1JU-n6-1V8" secondAttribute="trailing" id="eTJ-dc-b24"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="trailing" secondItem="9A2-MU-ISX" secondAttribute="trailing" id="njL-gG-r6J"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1JU-n6-1V8" secondAttribute="bottom" constant="318" id="xEM-D6-grQ"/>
-                            <constraint firstItem="FIJ-i9-YVB" firstAttribute="top" secondItem="4Re-Zy-azJ" secondAttribute="bottom" constant="40" id="yky-Xz-Wi5"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="wS7-X5-g2W"/>
                     <connections>
+                        <outlet property="Label_button" destination="hNT-nE-rYo" id="rEH-8U-Skb"/>
                         <outlet property="mapHere" destination="8bC-Xf-vdC" id="jbw-25-vyz"/>
                         <outlet property="status" destination="4Re-Zy-azJ" id="iXU-et-n0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="75"/>
+            <point key="canvasLocation" x="137.5" y="75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="personalhotspot" catalog="system" width="64" height="36"/>
-        <image name="pos.png" width="23" height="23"/>
     </resources>
 </document>
