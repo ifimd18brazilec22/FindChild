@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYW-hR-E54">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch Screen View Controller-->
+        <scene sceneID="onU-19-ILZ">
+            <objects>
+                <viewController id="LYW-hR-E54" customClass="LaunchScreenViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6dn-gC-ulk">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="herekidslogo" translatesAutoresizingMaskIntoConstraints="NO" id="8qF-yk-5fu">
+                                <rect key="frame" x="230" y="244" width="308" height="57"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bobbyfull" translatesAutoresizingMaskIntoConstraints="NO" id="znF-lO-lhP" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="277" y="367" width="215" height="421"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHj-zu-7kD">
+                                <rect key="frame" x="374" y="918" width="20" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#heysiriteam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RS-OH-HyA" customClass="GlitchLabel" customModule="GlitchLabel">
+                                <rect key="frame" x="260.5" y="939" width="247" height="51"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeBase">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeRange">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchAmplitude">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchThreshold">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaMin">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="glitchEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="drawScanline" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mashafull" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-VM-b6Q" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="500" y="355" width="226" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJd-AC-Rh9">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <connections>
+                                    <segue destination="5Cp-gy-xWE" kind="show" id="Gl4-kg-eOG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.32941176470588235" green="0.76078431372549016" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="znF-lO-lhP" firstAttribute="top" secondItem="8qF-yk-5fu" secondAttribute="bottom" constant="66" id="4hd-iw-5Mg"/>
+                            <constraint firstItem="YJd-AC-Rh9" firstAttribute="top" secondItem="krt-IT-HnS" secondAttribute="top" id="B4U-Ar-Z3x"/>
+                            <constraint firstItem="znF-lO-lhP" firstAttribute="centerY" secondItem="krt-IT-HnS" secondAttribute="centerY" id="En3-Nq-v61"/>
+                            <constraint firstItem="0RS-OH-HyA" firstAttribute="centerX" secondItem="krt-IT-HnS" secondAttribute="centerX" id="Le2-Yk-lIW"/>
+                            <constraint firstItem="8qF-yk-5fu" firstAttribute="centerX" secondItem="znF-lO-lhP" secondAttribute="centerX" id="Rm4-oe-Kxk"/>
+                            <constraint firstItem="YJd-AC-Rh9" firstAttribute="leading" secondItem="krt-IT-HnS" secondAttribute="leading" id="dMr-4Q-FSC"/>
+                            <constraint firstItem="0RS-OH-HyA" firstAttribute="top" secondItem="MHj-zu-7kD" secondAttribute="bottom" id="lhj-fc-bK1"/>
+                            <constraint firstItem="znF-lO-lhP" firstAttribute="centerX" secondItem="krt-IT-HnS" secondAttribute="centerX" id="mX6-ZL-a0K"/>
+                            <constraint firstItem="YJd-AC-Rh9" firstAttribute="trailing" secondItem="krt-IT-HnS" secondAttribute="trailing" id="sOr-ml-kaO"/>
+                            <constraint firstItem="YJd-AC-Rh9" firstAttribute="bottom" secondItem="krt-IT-HnS" secondAttribute="bottom" id="t87-Ev-z9i"/>
+                            <constraint firstItem="krt-IT-HnS" firstAttribute="bottom" secondItem="0RS-OH-HyA" secondAttribute="bottom" constant="34" id="y0L-LA-e2B"/>
+                            <constraint firstItem="MHj-zu-7kD" firstAttribute="centerX" secondItem="0RS-OH-HyA" secondAttribute="centerX" id="zu9-Qw-jrY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="krt-IT-HnS"/>
+                    </view>
+                    <connections>
+                        <outlet property="bobbyImage" destination="znF-lO-lhP" id="M2S-3d-2Zp"/>
+                        <outlet property="mashaImage" destination="BKk-VM-b6Q" id="Mfy-vg-Mzl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdH-af-qTu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-548.4375" y="-716.015625"/>
+        </scene>
+        <!--Setup-->
+        <scene sceneID="4hU-x2-OhC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setup" id="5Cp-gy-xWE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ulc-Io-rVZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0M-u1-x84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="-1125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bobbyfull" width="165" height="322"/>
+        <image name="herekidslogo" width="230" height="43"/>
+        <image name="mashafull" width="168" height="322"/>
+    </resources>
+</document>
