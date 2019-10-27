@@ -42,7 +42,8 @@ struct closedArea {
     var id_user = 0
 // class vc
 class ViewController: UIViewController {
-
+<<<<<<< HEAD
+    
     // TableView Properties
     @IBOutlet var status: UITextField!
     @IBOutlet weak var kidsTableView: UITableView!
@@ -56,11 +57,12 @@ class ViewController: UIViewController {
     var end_area = ""
     var shape = ""
     var boxik : NMAGeoBoundingBox?
-
+=======
     var polyX = [Double]()
     var polyY = [Double]()
     //
     let zoomLevel : Float = 15
+>>>>>>> 7077377da3420199697bca85c23ae252dd02af81
     var index_touch = Int()
     var index_placed = Int()
     // def values
@@ -192,7 +194,12 @@ class ViewController: UIViewController {
     
     @IBAction func StartPoly(_ sender: Any)
     {
+<<<<<<< HEAD
         if Label_button.currentTitle == "Draw zone" {
+=======
+        
+        if Label_button.currentTitle == "Начать" {
+>>>>>>> 7077377da3420199697bca85c23ae252dd02af81
         end_area = "start"
         shape = "poly"
         Label_button.setTitle("Finish", for: .normal)

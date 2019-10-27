@@ -29,10 +29,10 @@ extension ViewController {
             guard let data = data else {return}
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-       //          print(json)
+                 print(json)
                 
             } catch {
-      //          print(error)
+                print(error)
             }
         }.resume()
     }

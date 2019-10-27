@@ -16,6 +16,7 @@ struct dec_point {
 }
 public func ckeckPoint(checkPoint : NMAGeoCoordinates) -> dec_point {
     var status_id = dec_point()
+    //print("size arrayOBJ : = \(arrayObjSelect) + and count \(arrayObjSelect.count)")
     if arrayObjSelect.count > 0 {
         for i in 0...arrayObjSelect.count - 1 {
             let arg = arrayObjSelect[i] as! objectSelectedUsers
@@ -25,13 +26,21 @@ public func ckeckPoint(checkPoint : NMAGeoCoordinates) -> dec_point {
                 print("point is poly - \(indoorpoly) id object : \(arg.id)")
                 status_id.status = indoorpoly
                 status_id.id_obj = arg.id
-                status.text = "Point is : \(indoorpoly) - touch ID :\(arg.id)"
                 } else {
                 //print("point is poly - \(indoorpoly) id object : _")
             }
         }
+       
+    } else {
+    
+//var obS = self.NMAGeoToDoubleArray(arrayHere: areCheking)
+//var indoorpoly = self.pnpoly(areCheking.count - 1, obS.pointX, obS.pointY, checkPoint.latitude, checkPoint.longitude)
+ //      print(indoorpoly)
+  //  Carrier.text = "Point is : \(indoorpoly) - touch ID :\(self.index_touch)"
+    self.index_touch += 1
+   // status_id.status = indoorpoly
+  //  status_id.id_obj = self.index_touch
     }
     return status_id
 }
-    
 }

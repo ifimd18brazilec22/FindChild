@@ -31,8 +31,11 @@ class ARSceneController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.worldAlignment = .gravityAndHeading
         // Run the view's session
+        
         sceneView.session.run(configuration)
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
