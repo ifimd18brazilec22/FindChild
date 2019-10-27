@@ -76,7 +76,6 @@ class ViewController: UIViewController {
     //
     var coreRouter: NMACoreRouter!
     //
-    var boxik : NMAGeoBoundingBox?
     var mapRouts = [NMAMapRoute]()
     var progress: Progress? = nil
     //
@@ -88,10 +87,6 @@ class ViewController: UIViewController {
         let LeftDown = UIImage(named: "4.png")
         var objSelect = objectSelectedUsers()
         var arrayObjSelect = [Any]()
-    @IBOutlet var status: UITextField!
-    var idArea = 0
-    var end_area = ""
-    var shape = ""
     var obj = objpost()
     var locObj = [String:Any]()
     var timeGeoPosition = Timer()
