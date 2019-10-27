@@ -9,10 +9,21 @@
 import UIKit
 import NMAKit
 
+
+enum User {
+    case Bobby
+    case Masha
+    case Parent
+}
+
+var currentUser: User = .Parent
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
+    
+    
     
    // reg info
       let registrationData =

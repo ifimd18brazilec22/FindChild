@@ -418,6 +418,7 @@
                         <outlet property="kidsTableView" destination="WW3-tD-4fi" id="7Nm-3o-hI6"/>
                         <outlet property="mapHere" destination="Jgy-kI-qXX" id="El4-c0-udf"/>
                         <outlet property="status" destination="v02-CX-DSh" id="5AD-0A-stT"/>
+                        <outlet property="stork" destination="9gW-Ym-toE" id="KaL-BP-WoI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDp-4T-EZg" sceneMemberID="firstResponder"/>

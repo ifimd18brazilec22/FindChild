@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     // TableView Properties
     @IBOutlet var status: UITextField!
     @IBOutlet weak var kidsTableView: UITableView!
+    @IBOutlet weak var stork: CardView!
     let kidsNamesArray = ["Bobby", "Masha"]
     let kidsStatusArray = ["online", "offline"]
     let kidsLocationArray = ["Going to school", "At home"]
@@ -113,6 +114,13 @@ class ViewController: UIViewController {
     /*12*/       NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10)]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Скрываем штокру для детей
+        print("\(currentUser)")
+        if currentUser == .Masha || currentUser == .Bobby {
+            stork.isHidden = true
+        }
+        
         self.index_touch = 0
         self.index_placed = 1
         self.mapHere.MapInit()

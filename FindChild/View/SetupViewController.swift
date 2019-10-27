@@ -27,6 +27,14 @@ class SetupViewController: UIViewController {
             
         }
     }
+    @IBAction func setupDebug(_ sender: Any) {
+        print(balloonPicker.value.rounded())
+        if balloonPicker.value.rounded() == 20 {
+            currentUser = .Masha
+        } else if balloonPicker.value.rounded() == 26 {
+            currentUser = .Bobby
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
