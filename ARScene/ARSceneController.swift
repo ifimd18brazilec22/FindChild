@@ -33,10 +33,23 @@ class ARSceneController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravityAndHeading
         // Run the view's session
-        
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        showShape()
         sceneView.session.run(configuration)
         
     }
+   func showShape() {
+    let text = SCNText(string: "Школа", extrusionDepth: 1)
+    let material = SCNMaterial()
+    material.diffuse.contents = UIColor.orange
+    text.materials = [material]
+    let node = SCNNode()
+    node.position = SCNVector3(0,2, 2)
+    node.scale = SCNVector3(0.01, 0.01, 0.01)
+    node.geometry = text
+    node.name = "shape"
+    sceneView.scene.rootNode.addChildNode(node)
+     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

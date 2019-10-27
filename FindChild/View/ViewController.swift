@@ -135,7 +135,12 @@ class ViewController: UIViewController {
         let  myPosition = NMAPositioningManager.sharedInstance().currentPosition
         self.trackingTimer()
         self.trackingTimerChild()
-       
+        self.zoneObject(id: 1, geo: NMAGeoCoordinates(latitude: 55.79510365474969, longitude: 37.55457465864718), type: "home")
+         self.zoneObject(id: 2, geo: NMAGeoCoordinates(latitude: 55.80510365474969, longitude: 37.52457465864718), type: "school")
+        self.zoneObject(id: 3, geo: NMAGeoCoordinates(latitude: 55.76510365474969, longitude: 37.50457465864718), type: "home")
+        self.zoneObject(id: 4, geo: NMAGeoCoordinates(latitude: 55.83510365474969, longitude: 37.49457465864718), type: "school")
+        self.zoneObject(id: 5, geo: NMAGeoCoordinates(latitude: 55.82510365474969, longitude: 37.45457465864718), type: "home")
+        self.zoneObject(id: 6, geo: NMAGeoCoordinates(latitude: 55.85510365474969, longitude: 37.37457465864718), type: "school")
     }
 
     
@@ -301,7 +306,7 @@ extension ViewController : NMAMapGestureDelegate {
             let latLocal = mapView.geoCoordinates(from: location)!.latitude
             let lonLocal = mapView.geoCoordinates(from: location)!.longitude
             self.route.append(NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal))
-            self.zoneObject(id: self.index_placed, geo: NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal,altitude: 1), type: "home-button-for-interface 1.png")
+            //self.zoneObject(id: self.index_placed, geo: NMAGeoCoordinates(latitude: latLocal, longitude: lonLocal,altitude: 1), type: "home-button-for-interface 1.png")
            // print(self.route)
             //mapView.onMapObjectSelected(latLocal, lonLocal)
             self.routeChild((Any).self)
