@@ -14,10 +14,12 @@ extension ViewController {
     let  myPosition = NMAPositioningManager.sharedInstance().currentPosition
     var routingMode = NMARoutingMode()
     routingMode = NMARoutingMode.init(
+        
         routingType: NMARoutingType.balanced,//shortest,//.fastest,
         transportMode: NMATransportMode.pedestrian,//pedestrian,
         routingOptions: []//NMARoutingOption.avoidTollRoad
     )
+    
     // check if calculation completed otherwise cancel.
     if !(progress?.isFinished ?? false) {
         progress?.cancel()

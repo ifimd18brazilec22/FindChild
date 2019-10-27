@@ -97,6 +97,7 @@
                                             <segment title="Boy"/>
                                             <segment title="Girl"/>
                                         </segments>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="genderControl:" destination="M1r-pE-s90" eventType="valueChanged" id="CYR-T1-WuP"/>
                                             <action selector="genderControl:" destination="OQU-SB-FCR" eventType="valueChanged" id="wSA-V0-zQW"/>
