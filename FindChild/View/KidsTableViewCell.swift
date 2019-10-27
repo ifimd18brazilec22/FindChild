@@ -10,6 +10,13 @@ import UIKit
 
 class KidsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var kidName: UILabel!
+    @IBOutlet weak var kidImage: UIImageView!
+    @IBOutlet weak var kidCall: UIButton!
+    @IBOutlet weak var kidLocation: UILabel!
+    
+    @IBAction func kidCall(_ sender: Any) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

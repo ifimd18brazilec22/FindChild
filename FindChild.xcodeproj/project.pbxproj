@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84456977236534B200A69040 /* MainApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84456976236534B200A69040 /* MainApplication.storyboard */; };
+		8445697923653C8500A69040 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445697823653C8500A69040 /* SetupViewController.swift */; };
+		845FDCF923651F010027F050 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FDCF823651F010027F050 /* LaunchScreenViewController.swift */; };
+		845FDD02236525FC0027F050 /* ThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FDCFE236525FC0027F050 /* ThumbView.swift */; };
+		845FDD03236525FC0027F050 /* TrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FDCFF236525FC0027F050 /* TrackLayer.swift */; };
+		845FDD04236525FC0027F050 /* BalloonPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FDD00236525FC0027F050 /* BalloonPickerView.swift */; };
+		845FDD05236525FC0027F050 /* BalloonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FDD01236525FC0027F050 /* BalloonView.swift */; };
+		84B192D423652A49009F8D83 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B192D323652A49009F8D83 /* Setup.storyboard */; };
+		84BC1C1B2365492400F50D4F /* KidsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC1C1A2365492400F50D4F /* KidsTableViewCell.swift */; };
 		B70A954A23651A9800566292 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A954923651A9800566292 /* Network.swift */; };
 		B764A731236418B70014FF2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A730236418B70014FF2E /* AppDelegate.swift */; };
 		B764A735236418B70014FF2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A734236418B70014FF2E /* ViewController.swift */; };
@@ -34,6 +43,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84456976236534B200A69040 /* MainApplication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainApplication.storyboard; sourceTree = "<group>"; };
+		8445697823653C8500A69040 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		845FDCF823651F010027F050 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		845FDCFE236525FC0027F050 /* ThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThumbView.swift; path = FindChild/Extensions/BallonPicker/ThumbView.swift; sourceTree = SOURCE_ROOT; };
+		845FDCFF236525FC0027F050 /* TrackLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackLayer.swift; path = FindChild/Extensions/BallonPicker/TrackLayer.swift; sourceTree = SOURCE_ROOT; };
+		845FDD00236525FC0027F050 /* BalloonPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalloonPickerView.swift; path = FindChild/Extensions/BallonPicker/BalloonPickerView.swift; sourceTree = SOURCE_ROOT; };
+		845FDD01236525FC0027F050 /* BalloonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalloonView.swift; path = FindChild/Extensions/BallonPicker/BalloonView.swift; sourceTree = SOURCE_ROOT; };
+		84B192D323652A49009F8D83 /* Setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		84BC1C1A2365492400F50D4F /* KidsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsTableViewCell.swift; sourceTree = "<group>"; };
 		A7D50BBFEC6F064AE439279A /* Pods-FindChild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindChild.debug.xcconfig"; path = "Target Support Files/Pods-FindChild/Pods-FindChild.debug.xcconfig"; sourceTree = "<group>"; };
 		B70A954923651A9800566292 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B764A72D236418B70014FF2E /* FindChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +94,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845FDCFC236525DF0027F050 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				845FDCFD236525F10027F050 /* BallonPicker */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		845FDCFD236525F10027F050 /* BallonPicker */ = {
+			isa = PBXGroup;
+			children = (
+				845FDD00236525FC0027F050 /* BalloonPickerView.swift */,
+				845FDD01236525FC0027F050 /* BalloonView.swift */,
+				845FDCFE236525FC0027F050 /* ThumbView.swift */,
+				845FDCFF236525FC0027F050 /* TrackLayer.swift */,
+			);
+			path = BallonPicker;
+			sourceTree = "<group>";
+		};
 		B70A954823651A7E00566292 /* net */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +144,7 @@
 		B764A72F236418B70014FF2E /* FindChild */ = {
 			isa = PBXGroup;
 			children = (
+				845FDCFC236525DF0027F050 /* Extension */,
 				B70A954823651A7E00566292 /* net */,
 				B79E01522364F68100F5D5B9 /* storyboard */,
 				B79E01512364F66D00F5D5B9 /* View */,
@@ -153,6 +191,9 @@
 			children = (
 				B7C5C0DB2364B6DA009002AA /* MaterialView.swift */,
 				B764A734236418B70014FF2E /* ViewController.swift */,
+				845FDCF823651F010027F050 /* LaunchScreenViewController.swift */,
+				8445697823653C8500A69040 /* SetupViewController.swift */,
+				84BC1C1A2365492400F50D4F /* KidsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				B764A73B236418B80014FF2E /* LaunchScreen.storyboard */,
+				84456976236534B200A69040 /* MainApplication.storyboard */,
+				84B192D323652A49009F8D83 /* Setup.storyboard */,
 				B764A736236418B70014FF2E /* Main.storyboard */,
 			);
 			path = storyboard;
@@ -210,6 +253,7 @@
 				B764A72A236418B70014FF2E /* Frameworks */,
 				B764A72B236418B70014FF2E /* Resources */,
 				638CC9CB61CAEA31C191DFE3 /* [CP] Embed Pods Frameworks */,
+				5020C53396CDCAF7299A715C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B764A74F23643BD10014FF2E /* 1.png in Resources */,
+				84B192D423652A49009F8D83 /* Setup.storyboard in Resources */,
+				84456977236534B200A69040 /* MainApplication.storyboard in Resources */,
 				B7EB73EB2364848600377936 /* art.scnassets in Resources */,
 				B764A74B23643BD10014FF2E /* 3.png in Resources */,
 				B764A75723645F460014FF2E /* home-button-for-interface 1.png in Resources */,
@@ -276,6 +322,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5020C53396CDCAF7299A715C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindChild/Pods-FindChild-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindChild/Pods-FindChild-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindChild/Pods-FindChild-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		638CC9CB61CAEA31C191DFE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845FDD04236525FC0027F050 /* BalloonPickerView.swift in Sources */,
 				B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */,
 				B764A751236448F50014FF2E /* extensionPoly.swift in Sources */,
 				B79E014B2364F3AA00F5D5B9 /* CheckerArea.swift in Sources */,
@@ -330,8 +394,14 @@
 				B70A954A23651A9800566292 /* Network.swift in Sources */,
 				B764A735236418B70014FF2E /* ViewController.swift in Sources */,
 				B764A731236418B70014FF2E /* AppDelegate.swift in Sources */,
+				845FDD02236525FC0027F050 /* ThumbView.swift in Sources */,
+				8445697923653C8500A69040 /* SetupViewController.swift in Sources */,
 				B7C5C0DC2364B6DA009002AA /* MaterialView.swift in Sources */,
 				B79E014D2364F4C100F5D5B9 /* routeChild.swift in Sources */,
+				845FDD03236525FC0027F050 /* TrackLayer.swift in Sources */,
+				84BC1C1B2365492400F50D4F /* KidsTableViewCell.swift in Sources */,
+				845FDCF923651F010027F050 /* LaunchScreenViewController.swift in Sources */,
+				845FDD05236525FC0027F050 /* BalloonView.swift in Sources */,
 				B7EB73E92364847700377936 /* ARSceneController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RCKEM6H93;
+				DEVELOPMENT_TEAM = 6355K3CJ5C;
 				INFOPLIST_FILE = FindChild/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RCKEM6H93;
+				DEVELOPMENT_TEAM = 6355K3CJ5C;
 				INFOPLIST_FILE = FindChild/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

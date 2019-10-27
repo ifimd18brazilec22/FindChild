@@ -1,16 +1,36 @@
 PODS:
+  - GlitchLabel (2.0.0)
   - HEREMaps (3.13.2)
+  - Spring (1.0.6)
+  - SPStorkController (1.7.9)
 
 DEPENDENCIES:
+  - GlitchLabel (~> 2.0.0)
   - HEREMaps
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SPStorkController
 
 SPEC REPOS:
   trunk:
+    - GlitchLabel
     - HEREMaps
+    - SPStorkController
+
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 50d92a5b9e08848387ae95bf44c6ad20834f7083
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  GlitchLabel: 65773d1df358ef66c8daa40428eb79bd04e7a976
   HEREMaps: cc8908bb685c078b4b7f4d372c2ce3c4b03bf13a
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
 
-PODFILE CHECKSUM: a200cc40c995e9952fb7f6ab28e63618b6a2c4bf
+PODFILE CHECKSUM: 64ad037212f091c7e11914ee96002ad960cefb84
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

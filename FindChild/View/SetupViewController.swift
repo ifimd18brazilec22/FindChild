@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import Spring
 
 class SetupViewController: UIViewController {
 
+    @IBOutlet weak var genderOutlet: UISegmentedControl!
+    @IBOutlet weak var balloonPicker: BalloonPickerView!
+    @IBOutlet weak var kidsImage: SpringImageView!
+    @IBAction func genderControl(_ sender: Any) {
+        if genderOutlet.selectedSegmentIndex == 0 {
+            kidsImage.animation = "slideLeft"
+            kidsImage.image = #imageLiteral(resourceName: "bobbyfull")
+            kidsImage.animate()
+            
+        } else {
+            kidsImage.animation = "slideLeft"
+            kidsImage.image = #imageLiteral(resourceName: "mashafull")
+            kidsImage.animate()
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        genderOutlet.selectedSegmentIndex = 1
+        balloonPicker.tintColor = #colorLiteral(red: 0.215755403, green: 0.443744421, blue: 0.4183230102, alpha: 1)
         // Do any additional setup after loading the view.
     }
     

@@ -35,7 +35,16 @@ struct closedArea {
     var id_user = 0
 // class vc
 class ViewController: UIViewController {
+    
+    // TableView Properties
     @IBOutlet var status: UITextField!
+    @IBOutlet weak var kidsTableView: UITableView!
+    let kidsNamesArray = ["Bobby", "Masha"]
+    let kidsStatusArray = ["online", "offline"]
+    let kidsLocationArray = ["Going to school", "At home"]
+    let kidsImagesArray: [UIImage] = [#imageLiteral(resourceName: "bobby"), #imageLiteral(resourceName: "masha")]
+    
+    // MapProperties
     var idArea = 0
     var end_area = ""
     var shape = ""
@@ -129,12 +138,12 @@ class ViewController: UIViewController {
     }
     @IBAction func StartPoly(_ sender: Any)
     {
-        if Label_button.currentTitle == "Начать" {
+        if Label_button.currentTitle == "Draw zone" {
         end_area = "start"
         shape = "poly"
-        Label_button.setTitle("Завершить", for: .normal)
+        Label_button.setTitle("Finish", for: .normal)
         } else {
-        Label_button.setTitle("Начать", for: .normal)
+        Label_button.setTitle("Draw zone", for: .normal)
         end_area = "end"
         shape = "poly"
             let last =  array_area.frame_area[0]
@@ -255,8 +264,29 @@ extension ViewController : NMAMapGestureDelegate {
     }
     // *LongPress* touch to detected point in poly
 }
+
 extension ViewController {
     func getLive() {
         get(url: "http://172.31.18.155:8080/api/location/live")
+    }
+}
+
+
+// MARK: - ARBI TableViewController
+
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = kidsTableView.dequeueReusableCell(withIdentifier: "Cell") as! KidsTableViewCell
+        cell.kidName.text = kidsNamesArray[indexPath.row]
+        cell.kidImage.image = kidsImagesArray[indexPath.row]
+        cell.kidLocation.text = kidsLocationArray[indexPath.row]
+        cell.kidCall.setTitle(kidsNamesArray[indexPath.row], for: .normal)
+        
+        return cell
     }
 }

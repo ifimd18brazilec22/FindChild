@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import Spring
 
 class LaunchScreenViewController: UIViewController {
-
+    @IBOutlet weak var bobbyImage: SpringImageView!
+    @IBOutlet weak var mashaImage: SpringImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        bobbyImage.animation = "squeezeDown"
+        bobbyImage.animate()
     }
     
 

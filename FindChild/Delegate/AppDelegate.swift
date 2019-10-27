@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       )
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        NMAApplicationContext.setAppId(registrationData.appId, appCode: registrationData.appCode, licenseKey: registrationData.licenseKey)
+//    let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "CustomLaunchScreen", bundle: nil)
+//    let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
+//    self.window = UIWindow(frame: UIScreen.main.bounds)
+//    self.window?.rootViewController = initialViewControlleripad
+//    self.window?.makeKeyAndVisible()
        return true
    }
    

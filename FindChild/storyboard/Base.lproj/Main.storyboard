@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="otU-Jc-y1i">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,177 +8,102 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scene Controller-->
-        <scene sceneID="STS-xp-wyV">
+        <!--Launch Screen View Controller-->
+        <scene sceneID="amD-wv-QNf">
             <objects>
-                <viewController id="Q4g-9A-oGC" customClass="ARSceneController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="ARGeoScene.scn" id="eXg-rW-CHN">
-                        <rect key="frame" x="0.0" y="0.0" width="333" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
-                    <navigationItem key="navigationItem" id="ZBy-S6-Hj5"/>
-                    <connections>
-                        <outlet property="sceneView" destination="eXg-rW-CHN" id="Ccj-GX-FMd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dTZ-Cn-YQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1193" y="-716"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="mapViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="NMAMapView">
+                <viewController storyboardIdentifier="LaunchScreenViewController" id="otU-Jc-y1i" customClass="LaunchScreenViewController" customModule="FindChild" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GHr-sl-OYa">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-Zy-azJ">
-                                <rect key="frame" x="29" y="86" width="510" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTI-v5-QYT">
-                                <rect key="frame" x="52" y="57" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="herekidslogo" translatesAutoresizingMaskIntoConstraints="NO" id="GJv-2m-Z25">
+                                <rect key="frame" x="230" y="244" width="308" height="57"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bobbyfull" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-Vj-wZe" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="277" y="367" width="215" height="421"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1z-3Z-6cA">
+                                <rect key="frame" x="374" y="918" width="20" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9A2-MU-ISX" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="282" width="147" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-nE-rYo">
-                                        <rect key="frame" x="-8" y="6" width="162" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Начать"/>
-                                        <connections>
-                                            <action selector="StartPoly:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbT-ao-s8p"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#heysiriteam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqG-47-lcn" customClass="GlitchLabel" customModule="GlitchLabel">
+                                <rect key="frame" x="260.5" y="939" width="247" height="51"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeBase">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeRange">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchAmplitude">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchThreshold">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaMin">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="glitchEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="drawScanline" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-n6-1V8" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="370" width="147" height="45"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mashafull" translatesAutoresizingMaskIntoConstraints="NO" id="Qzs-qk-doC" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="500" y="355" width="226" height="433"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-30-aRh">
-                                        <rect key="frame" x="38" y="1" width="70" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Clear"/>
-                                        <connections>
-                                            <action selector="clearMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vtS-g7-eKE"/>
-                                            <action selector="drawZone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cSO-2A-xh8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-WM-hvf" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="35" y="134" width="67" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSD-OT-yIb">
-                                        <rect key="frame" x="4" y="7" width="59" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1"/>
-                                        <connections>
-                                            <action selector="first_user:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdH-Hy-lnd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIJ-i9-YVB" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="198" width="147" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlM-SR-VMS">
-                                        <rect key="frame" x="49" y="12" width="47" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="AR"/>
-                                        <connections>
-                                            <segue destination="Q4g-9A-oGC" kind="popoverPresentation" popoverAnchorView="hlM-SR-VMS" id="mhq-nY-Cp7">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLf-Pt-X5P" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="110" y="134" width="67" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4K-HU-nZp">
-                                        <rect key="frame" x="4" y="7" width="59" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="2"/>
-                                        <connections>
-                                            <action selector="two_user:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ndb-hI-TLt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="py2-Te-Pcb">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <connections>
+                                    <segue destination="Dkh-t7-rVU" kind="show" id="6Ps-yd-Ev6"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.76078431369999999" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bxp-0m-jRD" firstAttribute="bottom" secondItem="AqG-47-lcn" secondAttribute="bottom" constant="34" id="00v-Ye-QAG"/>
+                            <constraint firstItem="GJv-2m-Z25" firstAttribute="centerX" secondItem="HmS-Vj-wZe" secondAttribute="centerX" id="4aq-Sw-8oI"/>
+                            <constraint firstItem="py2-Te-Pcb" firstAttribute="bottom" secondItem="Bxp-0m-jRD" secondAttribute="bottom" id="N3c-Jv-BSb"/>
+                            <constraint firstItem="HmS-Vj-wZe" firstAttribute="centerX" secondItem="Bxp-0m-jRD" secondAttribute="centerX" id="PYd-x2-GY4"/>
+                            <constraint firstItem="py2-Te-Pcb" firstAttribute="top" secondItem="Bxp-0m-jRD" secondAttribute="top" id="U7U-cG-fOn"/>
+                            <constraint firstItem="AqG-47-lcn" firstAttribute="top" secondItem="M1z-3Z-6cA" secondAttribute="bottom" id="Zlh-Pk-ClM"/>
+                            <constraint firstItem="M1z-3Z-6cA" firstAttribute="centerX" secondItem="AqG-47-lcn" secondAttribute="centerX" id="lXM-co-kYz"/>
+                            <constraint firstItem="HmS-Vj-wZe" firstAttribute="centerY" secondItem="Bxp-0m-jRD" secondAttribute="centerY" id="pIL-Hw-qtZ"/>
+                            <constraint firstItem="HmS-Vj-wZe" firstAttribute="top" secondItem="GJv-2m-Z25" secondAttribute="bottom" constant="66" id="xFC-jM-Oom"/>
+                            <constraint firstItem="py2-Te-Pcb" firstAttribute="trailing" secondItem="Bxp-0m-jRD" secondAttribute="trailing" id="xTZ-DG-oS1"/>
+                            <constraint firstItem="AqG-47-lcn" firstAttribute="centerX" secondItem="Bxp-0m-jRD" secondAttribute="centerX" id="ycE-b4-If1"/>
+                            <constraint firstItem="py2-Te-Pcb" firstAttribute="leading" secondItem="Bxp-0m-jRD" secondAttribute="leading" id="zGc-Ch-qAc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bxp-0m-jRD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wS7-X5-g2W"/>
                     <connections>
-                        <outlet property="Label_button" destination="hNT-nE-rYo" id="rEH-8U-Skb"/>
-                        <outlet property="mapHere" destination="8bC-Xf-vdC" id="jbw-25-vyz"/>
-                        <outlet property="status" destination="4Re-Zy-azJ" id="iXU-et-n0B"/>
+                        <outlet property="bobbyImage" destination="HmS-Vj-wZe" id="ih6-O5-Fd7"/>
+                        <outlet property="mashaImage" destination="Qzs-qk-doC" id="BAD-uo-329"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-a9-DoS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.5" y="75"/>
+            <point key="canvasLocation" x="-548.4375" y="-716.015625"/>
+        </scene>
+        <!--Setup-->
+        <scene sceneID="cA3-XG-ozy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setup" id="Dkh-t7-rVU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Uqt-bf-Ati"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Gf-Es-Y9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110" y="-1125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bobbyfull" width="165" height="322"/>
+        <image name="herekidslogo" width="230" height="43"/>
+        <image name="mashafull" width="168" height="322"/>
+    </resources>
 </document>
