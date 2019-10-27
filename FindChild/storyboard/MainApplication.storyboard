@@ -70,31 +70,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61X-DB-n0w" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                <rect key="frame" x="29" y="198" width="147" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-wj-TnY">
-                                        <rect key="frame" x="49" y="12" width="47" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="AR"/>
-                                        <connections>
-                                            <segue destination="uyU-Ka-QcH" kind="popoverPresentation" popoverAnchorView="U5u-wj-TnY" id="4i6-Da-FWv">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMe-JO-rAX" customClass="CardView" customModule="FindChild" customModuleProvider="target">
                                 <rect key="frame" x="110" y="134" width="67" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,21 +101,21 @@
                                 <rect key="frame" x="0.0" y="630" width="768" height="424"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WW3-tD-4fi">
-                                        <rect key="frame" x="23" y="52" width="294" height="325"/>
+                                        <rect key="frame" x="48" y="52" width="310" height="325"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="165" id="feE-Rm-COj" customClass="KidsTableViewCell" customModule="FindChild" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="294" height="165"/>
+                                                <rect key="frame" x="0.0" y="28" width="310" height="165"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="feE-Rm-COj" id="tyu-Wf-snr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="165"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="165"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bobby" translatesAutoresizingMaskIntoConstraints="NO" id="nhd-Vv-arw">
                                                             <rect key="frame" x="8" y="8" width="39" height="149"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-pK-Zvb">
-                                                            <rect key="frame" x="55" y="74" width="231" height="92"/>
+                                                            <rect key="frame" x="55" y="74" width="247" height="92"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sW-ZLD">
                                                                     <rect key="frame" x="0.0" y="0.0" width="108" height="29.5"/>
@@ -181,10 +156,10 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="do5-Kv-1Dg" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="56" width="206" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="56" width="217" height="36"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amv-Fv-FLW">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="206" height="36"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="217" height="36"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <connections>
                                                                                 <action selector="kidCall:" destination="feE-Rm-COj" eventType="touchUpInside" id="men-Hv-zhT"/>
@@ -219,7 +194,7 @@
                                                             <rect key="frame" x="104.5" y="46.5" width="13" height="13"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-fs-Jkh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="294" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="310" height="37"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="37" id="VVF-4y-jyC"/>
@@ -260,7 +235,7 @@
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J9o-yb-dhw">
-                                        <rect key="frame" x="483" y="99.5" width="205" height="230"/>
+                                        <rect key="frame" x="483" y="77" width="205" height="275"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpY-Jf-RxB" customClass="CardView" customModule="FindChild" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="205" height="45"/>
@@ -288,7 +263,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-h2-lkv" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="61.5" width="205" height="45"/>
+                                                <rect key="frame" x="0.0" y="57.5" width="205" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfu-Ld-AP8">
                                                         <rect key="frame" x="14" y="8" width="177" height="29"/>
@@ -314,7 +289,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-Ss-iwX" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="123.5" width="205" height="45"/>
+                                                <rect key="frame" x="0.0" y="115" width="205" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcy-ZC-e0t">
                                                         <rect key="frame" x="11" y="6" width="186" height="34"/>
@@ -335,8 +310,35 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61X-DB-n0w" customClass="CardView" customModule="FindChild" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="172.5" width="205" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-wj-TnY">
+                                                        <rect key="frame" x="37" y="8" width="129" height="33"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="AR mode: On"/>
+                                                        <connections>
+                                                            <segue destination="uyU-Ka-QcH" kind="popoverPresentation" popoverAnchorView="U5u-wj-TnY" id="4i6-Da-FWv">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="b7o-AL-tUb"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avP-2M-C2c" customClass="CardView" customModule="FindChild" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="185" width="205" height="45"/>
+                                                <rect key="frame" x="0.0" y="230" width="205" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1p-g6-isj">
                                                         <rect key="frame" x="8" y="6" width="185" height="34"/>
@@ -360,17 +362,33 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="205" id="C1m-yF-If0"/>
-                                            <constraint firstAttribute="height" constant="230" id="U7G-wK-qjT"/>
+                                            <constraint firstAttribute="height" constant="275" id="U7G-wK-qjT"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wV-7n-beh">
+                                        <rect key="frame" x="525.5" y="19.5" width="120" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kids" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-vQ-9bO">
+                                        <rect key="frame" x="170" y="19.5" width="66" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" red="0.21960784310000001" green="0.23529411759999999" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="WW3-tD-4fi" firstAttribute="leading" secondItem="9gW-Ym-toE" secondAttribute="leadingMargin" constant="15" id="ACf-pj-36y"/>
-                                    <constraint firstAttribute="trailing" secondItem="WW3-tD-4fi" secondAttribute="trailing" constant="451" id="AQk-Rn-h2n"/>
+                                    <constraint firstItem="WW3-tD-4fi" firstAttribute="leading" secondItem="9gW-Ym-toE" secondAttribute="leadingMargin" constant="40" id="ACf-pj-36y"/>
+                                    <constraint firstAttribute="trailing" secondItem="WW3-tD-4fi" secondAttribute="trailing" constant="410" id="AQk-Rn-h2n"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="WW3-tD-4fi" secondAttribute="bottom" constant="39" id="HIv-4g-adV"/>
+                                    <constraint firstItem="J9o-yb-dhw" firstAttribute="top" secondItem="4wV-7n-beh" secondAttribute="bottom" constant="19" id="Qyk-JL-cxK"/>
                                     <constraint firstAttribute="trailing" secondItem="J9o-yb-dhw" secondAttribute="trailing" constant="80" id="Qzv-57-a0J"/>
+                                    <constraint firstItem="Nt3-vQ-9bO" firstAttribute="centerY" secondItem="4wV-7n-beh" secondAttribute="centerY" id="Shp-zt-Jsd"/>
+                                    <constraint firstItem="Nt3-vQ-9bO" firstAttribute="centerX" secondItem="WW3-tD-4fi" secondAttribute="centerX" id="TZI-0y-FRh"/>
+                                    <constraint firstItem="4wV-7n-beh" firstAttribute="centerX" secondItem="J9o-yb-dhw" secondAttribute="centerX" id="dwv-cs-hzt"/>
                                     <constraint firstItem="J9o-yb-dhw" firstAttribute="centerY" secondItem="WW3-tD-4fi" secondAttribute="centerY" id="gIR-ep-iEZ"/>
                                     <constraint firstAttribute="width" secondItem="9gW-Ym-toE" secondAttribute="height" multiplier="96:53" id="tyt-xv-MER"/>
                                     <constraint firstItem="WW3-tD-4fi" firstAttribute="top" secondItem="9gW-Ym-toE" secondAttribute="topMargin" constant="44" id="vch-Ic-Tab"/>
