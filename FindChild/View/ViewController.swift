@@ -32,7 +32,7 @@ struct closedArea {
     var array_area = closedArea()
     private var geoBox1 : NMAGeoBoundingBox?
     private var geoPolyline : NMAMapPolyline?
-
+    var id_user = 0
 // class vc
 class ViewController: UIViewController {
     @IBOutlet var status: UITextField!
@@ -52,6 +52,7 @@ class ViewController: UIViewController {
     var obj = objpost()
     var arrayObj = [String:Any]()
     var timeGeoPosition = Timer()
+    var timeGeoPositionChild = Timer()
     private var mapCircle : NMAMapCircle?
     //
     @IBOutlet weak var mapHere: NMAMapView!
@@ -60,6 +61,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.mapHere.MapInit()
         self.mapHere.gestureDelegate = self
+        coreRouter = NMACoreRouter()
         // tpos
         NMAPositioningManager.sharedInstance().dataSource = NMAHEREPositionSource()
         NotificationCenter.default.addObserver(self,
@@ -68,10 +70,17 @@ class ViewController: UIViewController {
                                                 object: NMAPositioningManager.sharedInstance())
         let  myPosition = NMAPositioningManager.sharedInstance().currentPosition
         self.trackingTimer()
-        coreRouter = NMACoreRouter()
-        self.getLive()
+        self.trackingTimerChild()
+       
     }
 
+    
+    @IBAction func first_user(_ sender: Any) {
+        id_user = 1
+    }
+    @IBAction func two_user(_ sender: Any) {
+        id_user = 2
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         progress?.cancel()
@@ -112,10 +121,12 @@ class ViewController: UIViewController {
             arrayObj["longitude"] = obj.longitude as Double
             arrayObj["cellor"] = obj.cellor
             post(url: "http://172.31.18.155:8080/api/location/live", parametrs: arrayObj)
-        createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.blue, rad: 5)
+        createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.blue, rad: Int(2.5))
     }
         }
-    
+    @objc  func TrackingChildPosition() {
+        getLive()
+    }
     @IBAction func StartPoly(_ sender: Any)
     {
         if Label_button.currentTitle == "Начать" {
@@ -161,7 +172,7 @@ extension NMAMapView : quaklyInit {
     }
 }
 extension ViewController {
-
+     
     public func createCircle(geoCoord : NMAGeoCoordinates, color : UIColor,rad : Int) {
         //create NMAMapCircle located at geo coordiate and with radium in meters
         mapCircle = NMAMapCircle(geoCoord, radius: Double(rad))
@@ -174,11 +185,14 @@ extension ViewController {
         //add Map Circel to map view
         _ = mapCircle.map{ mapHere.add(mapObject: $0) }
     }
-func trackingTimer()
-{
+func trackingTimer() {
     timeGeoPosition.invalidate()
-    timeGeoPosition = Timer.scheduledTimer(timeInterval: 1, target: self, selector: "TrackingMyPosition", userInfo: nil, repeats: true)
-}
+    timeGeoPosition = Timer.scheduledTimer(timeInterval: 5, target: self, selector: "TrackingMyPosition", userInfo: nil, repeats: true)
+    }
+    func trackingTimerChild() {
+    timeGeoPositionChild.invalidate()
+        timeGeoPositionChild = Timer.scheduledTimer(timeInterval: 5, target: self, selector: "TrackingChildPosition", userInfo: nil, repeats: true)
+    }
 }
 extension ViewController {
     public func createPolyline(CTR : [NMAGeoCoordinates]) {
@@ -222,29 +236,6 @@ extension ViewController : NMAMapGestureDelegate {
         var pTemp = self.ckeckPoint(checkPoint: mapView.geoCoordinates(from: location)!)
         print(pTemp)
     }
-    struct dec_point {
-        var status = Bool()
-        var id_obj = Int()
-    }
-    public func ckeckPoint(checkPoint : NMAGeoCoordinates) -> dec_point {
-        var status_id = dec_point()
-        if arrayObjSelect.count > 0 {
-            for i in 0...arrayObjSelect.count - 1 {
-                let arg = arrayObjSelect[i] as! objectSelectedUsers
-                let obArray = self.NMAGeoToDoubleArray(arrayHere: arg.frame)
-                    var indoorpoly = self.pnpoly(arg.frame.count, obArray.pointX, obArray.pointY, checkPoint.latitude, checkPoint.longitude)
-                if indoorpoly == true {
-                    print("point is poly - \(indoorpoly) id object : \(arg.id)")
-                    status_id.status = indoorpoly
-                    status_id.id_obj = arg.id
-                    status.text = "Point is : \(indoorpoly) - touch ID :\(arg.id)"
-                    } else {
-                    //print("point is poly - \(indoorpoly) id object : _")
-                }
-            }
-        }
-        return status_id
-    }
     // *LongPress* touch to detected point in poly
        
     func mapView(_ mapView: NMAMapView, didReceiveDoubleTapAt location: CGPoint) {
@@ -263,69 +254,6 @@ extension ViewController : NMAMapGestureDelegate {
     func mapView(_ mapView: NMAMapView, didReceiveTwoFingerTapAt location: CGPoint) {
     }
     // *LongPress* touch to detected point in poly
-}
-//
-extension ViewController {
-    // post
-    func post(url : String,parametrs : [String:Any]) {
-        guard let url = URL(string: url) else {return}
-        let parametrs = parametrs//["id":"3","carrier":"LTE"]
-        var request = URLRequest(url : url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-type")
-        request.httpMethod = "POST"
-        guard let httBody = try? JSONSerialization.data(withJSONObject: parametrs, options: [.fragmentsAllowed]) else { return }
-        
-        //data(withJSONObject: parametrs, options: []) else {return}
-        request.httpBody = httBody
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data,response,error) in
-            if let response = response {
-        //        print(response)
-            }
-            guard let data = data else {return}
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-       //          print(json)
-                
-            } catch {
-      //          print(error)
-            }
-        }.resume()
-    }
-    // get
-    func get(url : String/*,parametrs : [String:Any]*/) {
-        guard let url = URL(string: url) else {return}
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data,response,error) in
-            if let response = response {
-                print(response)
-            }
-            guard let data = data else {return}
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                 print(json)
-                let data = json as! [String:Any]
-                let lat = data["latitude"] as! Double
-                let lon = data["longitude"] as! Double
-                self.createCircle(geoCoord: NMAGeoCoordinates(latitude: lat, longitude: lon), color: UIColor.lightGray, rad: 1)
-            
-            } catch {
-                print(error)
-            }
-        }.resume()
-    }
-    // get
-    func getImage(url : String/*,parametrs : [String:Any]*/) {
-        guard let url = URL(string: url) else {return}
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data,response,error) in
-            if let response = response {
-                print(response)
-            }
-            guard let data = data else {return}
-            print(data)
-        }.resume()
-    }
 }
 extension ViewController {
     func getLive() {

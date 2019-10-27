@@ -51,4 +51,12 @@ extension ViewController {
         self.mapHere.add(mapObject: mapRoute)
     })
 }
+    @IBAction func clearMap(_ sender: UIButton) {
+        // remove all routes from mapView.
+        for route in mapRouts {
+            self.mapHere.remove(mapObject: route)
+        }
+        route.removeAll()
+        //self.mapHere.zoomLevel = 10
+    }
 }

@@ -40,7 +40,8 @@ public func drawRectwithPoint(centrBox : [NMAGeoCoordinates], _ height : Float) 
     var boxPoly : NMAMapPolygon?
     boxPoly = NMAMapPolygon.init(vertices: centrBox)
     object.polyGon = boxPoly
-    boxPoly?.fillColor = UIColor.gray
+    boxPoly?.fillColor = UIColor.red
+    
     boxPoly?.lineWidth = 1
     boxPoly?.lineColor = UIColor.red
     boxPoly?.isVisible = true

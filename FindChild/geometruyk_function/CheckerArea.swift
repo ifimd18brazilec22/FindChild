@@ -14,8 +14,8 @@ extension ViewController {
         objSelect = objectSelectedUsers()
         if objSelect.id == 0 {
         }
-         /*1*/       objSelect.id = id
-        let polyTester = drawRectwith(centrBox: geo, 0.005)
+        objSelect.id = id
+        let polyTester = drawRectwith(centrBox: geo, 0.00005)
             polyTester.polyGon.map{mapHere.add(mapObject: $0)}
             boxik = polyTester.polyBox
             let marker = NMAMapMarker(geoCoordinates: geo, image: UIImage(named: type)!)

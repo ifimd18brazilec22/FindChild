@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70A954A23651A9800566292 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A954923651A9800566292 /* Network.swift */; };
 		B764A731236418B70014FF2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A730236418B70014FF2E /* AppDelegate.swift */; };
 		B764A735236418B70014FF2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A734236418B70014FF2E /* ViewController.swift */; };
 		B764A738236418B70014FF2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B764A736236418B70014FF2E /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764A758236464B50014FF2E /* SceneDelegate.swift */; };
 		B79E014B2364F3AA00F5D5B9 /* CheckerArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79E014A2364F3AA00F5D5B9 /* CheckerArea.swift */; };
 		B79E014D2364F4C100F5D5B9 /* routeChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79E014C2364F4C100F5D5B9 /* routeChild.swift */; };
+		B79E01542364FABC00F5D5B9 /* inPolyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79E01532364FABC00F5D5B9 /* inPolyPoint.swift */; };
 		B7C5C0DC2364B6DA009002AA /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5C0DB2364B6DA009002AA /* MaterialView.swift */; };
 		B7EB73E92364847700377936 /* ARSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB73E82364847700377936 /* ARSceneController.swift */; };
 		B7EB73EB2364848600377936 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EB73EA2364848600377936 /* art.scnassets */; };
@@ -33,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		A7D50BBFEC6F064AE439279A /* Pods-FindChild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindChild.debug.xcconfig"; path = "Target Support Files/Pods-FindChild/Pods-FindChild.debug.xcconfig"; sourceTree = "<group>"; };
+		B70A954923651A9800566292 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B764A72D236418B70014FF2E /* FindChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B764A730236418B70014FF2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B764A734236418B70014FF2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		B764A758236464B50014FF2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B79E014A2364F3AA00F5D5B9 /* CheckerArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerArea.swift; sourceTree = "<group>"; };
 		B79E014C2364F4C100F5D5B9 /* routeChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeChild.swift; sourceTree = "<group>"; };
+		B79E01532364FABC00F5D5B9 /* inPolyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inPolyPoint.swift; sourceTree = "<group>"; };
 		B7C5C0DB2364B6DA009002AA /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialView.swift; path = FindChild/View/MaterialView.swift; sourceTree = SOURCE_ROOT; };
 		B7EB73E82364847700377936 /* ARSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSceneController.swift; sourceTree = "<group>"; };
 		B7EB73EA2364848600377936 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -72,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B70A954823651A7E00566292 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				B70A954923651A9800566292 /* Network.swift */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
 		B764A724236418B70014FF2E = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,7 @@
 		B764A72F236418B70014FF2E /* FindChild */ = {
 			isa = PBXGroup;
 			children = (
+				B70A954823651A7E00566292 /* net */,
 				B79E01522364F68100F5D5B9 /* storyboard */,
 				B79E01512364F66D00F5D5B9 /* View */,
 				B79E01502364F65700F5D5B9 /* Delegate */,
@@ -112,6 +125,7 @@
 				B764A75223644ACD0014FF2E /* File.swift */,
 				B79E014C2364F4C100F5D5B9 /* routeChild.swift */,
 				B764A750236448F40014FF2E /* extensionPoly.swift */,
+				B79E01532364FABC00F5D5B9 /* inPolyPoint.swift */,
 			);
 			path = geometruyk_function;
 			sourceTree = "<group>";
@@ -311,7 +325,9 @@
 				B764A759236464B50014FF2E /* SceneDelegate.swift in Sources */,
 				B764A751236448F50014FF2E /* extensionPoly.swift in Sources */,
 				B79E014B2364F3AA00F5D5B9 /* CheckerArea.swift in Sources */,
+				B79E01542364FABC00F5D5B9 /* inPolyPoint.swift in Sources */,
 				B764A75323644ACD0014FF2E /* File.swift in Sources */,
+				B70A954A23651A9800566292 /* Network.swift in Sources */,
 				B764A735236418B70014FF2E /* ViewController.swift in Sources */,
 				B764A731236418B70014FF2E /* AppDelegate.swift in Sources */,
 				B7C5C0DC2364B6DA009002AA /* MaterialView.swift in Sources */,
