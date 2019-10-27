@@ -19,6 +19,13 @@ protocol InitMap {
     var mapScheme : String {get set}
 }
 //*** user's struct
+struct Location {
+    var  latitude : Double
+    var longitude : Double
+}
+var arrayLocation = [Location]()
+var poly = Location(latitude: 0, longitude: 0)
+//
 struct objpost {
     var latitude = Double()
     var longitude = Double()
@@ -35,30 +42,69 @@ struct closedArea {
     var id_user = 0
 // class vc
 class ViewController: UIViewController {
+    var polyX = [Double]()
+    var polyY = [Double]()
+    //
+    let zoomLevel : Float = 15
+    var index_touch = Int()
+    var index_placed = Int()
+    // def values
+     private var geoBox1 : NMAGeoBoundingBox?
+     private var geoPolyline : NMAMapPolyline?
+     private var mapCircle : NMAMapCircle?
+     var timeNewRoute = Timer()
+//     var obj = track_info()
+     var arrayObj = [String:Any]()
+     public var coordSystemHeli = [NMAGeoCoordinates]()
+     public var computeRoute = [NMAGeoCoordinates]()
+     var myCordinate = NMAGeoCoordinates()
+    //
+    var coreRouter: NMACoreRouter!
+    //
+    var boxik : NMAGeoBoundingBox?
+    var mapRouts = [NMAMapRoute]()
+    var progress: Progress? = nil
+    //
+    var route = [NMAGeoCoordinates]()
+    //
+        let LeftUp = UIImage(named: "1.png")
+        let RightUp = UIImage(named: "2.png")
+        let RightDown = UIImage(named: "3.png")
+        let LeftDown = UIImage(named: "4.png")
+        var objSelect = objectSelectedUsers()
+        var arrayObjSelect = [Any]()
     @IBOutlet var status: UITextField!
     var idArea = 0
     var end_area = ""
     var shape = ""
-    var boxik : NMAGeoBoundingBox?
-    var index_touch = Int()
-    var mapRouts = [NMAMapRoute]()
-    var coreRouter: NMACoreRouter!
-    var progress: Progress? = nil
-    var objSelect = objectSelectedUsers()
-    var arrayObjSelect = [Any]()
-    var index_placed = Int()
-    var route = [NMAGeoCoordinates]()
-    public var coordSystemHeli = [NMAGeoCoordinates]()
     var obj = objpost()
-    var arrayObj = [String:Any]()
+    var locObj = [String:Any]()
     var timeGeoPosition = Timer()
     var timeGeoPositionChild = Timer()
-    private var mapCircle : NMAMapCircle?
+  //  private var mapCircle : NMAMapCircle?
+   
+    //
+   // UIColor(displayP3Red: 0.6, green: 0.8, blue: 1, alpha: 0.6)
     //
     @IBOutlet weak var mapHere: NMAMapView!
-    
+   
+    let areCheking =
+    /*1*/       [NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10),
+    /*2*/        NMAGeoCoordinates(latitude: 55.75794, longitude: 37.60277, altitude: 10),
+    /*3*/        NMAGeoCoordinates(latitude: 55.75040, longitude: 37.60054, altitude: 10),
+    /*4*/        NMAGeoCoordinates(latitude: 55.74499, longitude: 37.60723, altitude: 10),
+    /*5*/        NMAGeoCoordinates(latitude: 55.74480, longitude: 37.61581, altitude: 10),
+    /*6*/        NMAGeoCoordinates(latitude: 55.75137, longitude: 37.61238, altitude: 10),
+    /*7*/        NMAGeoCoordinates(latitude: 55.75774, longitude: 37.61908, altitude: 10),
+    /*8*/        NMAGeoCoordinates(latitude: 55.75504, longitude: 37.62302, altitude: 10),
+    /*9*/        NMAGeoCoordinates(latitude: 55.74837, longitude: 37.63212, altitude: 10),
+    /*10*/       NMAGeoCoordinates(latitude: 55.75697, longitude: 37.63521, altitude: 10),
+    /*11*/       NMAGeoCoordinates(latitude: 55.76325, longitude: 37.61599, altitude: 10),
+    /*12*/       NMAGeoCoordinates(latitude: 55.76238, longitude: 37.61084, altitude: 10)]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.index_touch = 0
+        self.index_placed = 1
         self.mapHere.MapInit()
         self.mapHere.gestureDelegate = self
         coreRouter = NMACoreRouter()
@@ -120,6 +166,7 @@ class ViewController: UIViewController {
             arrayObj["latitude"] = obj.latitude as Double
             arrayObj["longitude"] = obj.longitude as Double
             arrayObj["cellor"] = obj.cellor
+            print(arrayObj)
             post(url: "http://172.31.18.155:8080/api/location/live", parametrs: arrayObj)
         createCircle(geoCoord: NMAGeoCoordinates(latitude:  arrayObj["latitude"] as! Double, longitude: arrayObj["longitude"] as! Double), color: UIColor.blue, rad: Int(2.5))
     }
@@ -127,8 +174,10 @@ class ViewController: UIViewController {
     @objc  func TrackingChildPosition() {
         getLive()
     }
+    
     @IBAction func StartPoly(_ sender: Any)
     {
+        
         if Label_button.currentTitle == "Начать" {
         end_area = "start"
         shape = "poly"
@@ -137,12 +186,29 @@ class ViewController: UIViewController {
         Label_button.setTitle("Начать", for: .normal)
         end_area = "end"
         shape = "poly"
+           
             let last =  array_area.frame_area[0]
             array_area.frame_area.append(last)
             let polyTester = drawRectwithPoint(centrBox: array_area.frame_area, 20)
             polyTester.map{mapHere.add(mapObject: $0)}
+            
+            // var Loc = array_area.frame_area
+            
+          //  for at in Loc {
+          //      poly.latitude = at.latitude
+          //      poly.longitude = at.longitude
+          //      let lat = poly.latitude
+          //      let lon = poly.longitude
+          //      arrayLocation.append(Location(latitude: lat, longitude: lon))
+          //  }
+          //  locObj["location"] = arrayLocation
             array_area.frame_area.removeAll()
+            print(locObj)
         }
+    }
+    @IBAction func postPoly(_ sender: Any) {
+        post(url: "/*http://172.31.18.155:8080/api/location/polygon", parametrs: locObj)
+        print("f")
     }
     @IBAction func setMyPos(_ sender: Any) {
         let latTracking = (NMAPositioningManager.sharedInstance().currentPosition?.coordinates?.latitude)!
@@ -234,7 +300,7 @@ extension ViewController : NMAMapGestureDelegate {
     //
     func mapView(_ mapView: NMAMapView, didReceiveTapAt location: CGPoint) {
         var pTemp = self.ckeckPoint(checkPoint: mapView.geoCoordinates(from: location)!)
-        print(pTemp)
+        print("\(pTemp) - ptmp")
     }
     // *LongPress* touch to detected point in poly
        
